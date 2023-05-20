@@ -16,7 +16,7 @@ import 'package:yaru_window/yaru_window.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.themeNotifier}) : super(key: key);
+  const MyHomePage({super.key, required this.themeNotifier});
 
   final ValueNotifier<ThemeMode> themeNotifier;
 
@@ -138,18 +138,17 @@ class _MyHomePageState extends State<MyHomePage> {
                       onDoubleTap: window.maximize,
                     ),
                     credits: [
-                      AdwPreferencesGroup.credits(
+                      AdwPreferencesGroup.creditsBuilder(
                         title: 'Developers',
-                        children: developers.entries
-                            .map(
-                              (e) => AdwActionRow(
-                                title: e.key,
-                                onActivated: () => launchUrl(
-                                  Uri.parse('https://github.com/${e.value}'),
-                                ),
-                              ),
-                            )
-                            .toList(),
+                        itemCount: developers.length,
+                        itemBuilder: (_, index) => AdwActionRow(
+                          title: developers.keys.elementAt(index),
+                          onActivated: () => launchUrl(
+                            Uri.parse(
+                              'https://github.com/${developers.values.elementAt(index)}',
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                     copyright: 'Copyright 2021-2022 Gtk-Flutter Developers',

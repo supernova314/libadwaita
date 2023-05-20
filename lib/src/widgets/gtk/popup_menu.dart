@@ -9,7 +9,7 @@ class AdwPopupMenu {}
 
 class GtkPopupMenu extends StatefulWidget {
   const GtkPopupMenu({
-    Key? key,
+    super.key,
     required this.body,
     this.icon = const Center(
       child: GtkIcon(
@@ -18,7 +18,7 @@ class GtkPopupMenu extends StatefulWidget {
     ),
     this.popupWidth = 200,
     this.popupHeight,
-  }) : super(key: key);
+  });
 
   /// The body of the popup
   final Widget body;

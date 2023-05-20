@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:libadwaita/libadwaita.dart';
 
 class ViewSwitcherHomePage extends StatefulWidget {
-  const ViewSwitcherHomePage({Key? key}) : super(key: key);
+  const ViewSwitcherHomePage({super.key});
 
   @override
   _ViewSwitcherHomePageState createState() => _ViewSwitcherHomePageState();

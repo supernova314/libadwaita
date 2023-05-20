@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:adwaita/adwaita.dart';
 import 'package:collection/collection.dart';
@@ -24,12 +26,13 @@ Future<void> main(List<String> args) async {
         break;
     }
   } else {
+
     runApp(MyApp());
   }
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  MyApp({super.key});
 
   final ValueNotifier<ThemeMode> themeNotifier =
       ValueNotifier(ThemeMode.system);

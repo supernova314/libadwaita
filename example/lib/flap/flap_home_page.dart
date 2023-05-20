@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:libadwaita/libadwaita.dart';
 
 class FlapHomePage extends StatefulWidget {
-  const FlapHomePage({Key? key, required this.themeNotifier}) : super(key: key);
+  const FlapHomePage({super.key, required this.themeNotifier});
 
   final ValueNotifier<ThemeMode> themeNotifier;
 
