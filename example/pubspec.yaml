@@ -8,20 +8,24 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  adwaita: "0.5.1"
+  adwaita: 
+    git:
+      url: git@github.com:supernova314/adwaita.git
   desktop_multi_window: ">=0.1.0 <1.0.0"
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.5
+  handy_window: ^0.3.1
   libadwaita:
     path: ../
-  libadwaita_bitsdojo: ^0.5.5
+  yaru_window: ^0.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  very_good_analysis: ^2.4.0
+  very_good_analysis: ^4.0.0
 
 flutter:
   uses-material-design: true
   assets:
-    - assets/logo.png
+    - assets/

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:libadwaita/src/core/core.dart';
 import 'package:libadwaita/src/widgets/widgets.dart';
-import 'package:libadwaita_core/libadwaita_core.dart';
 
 class GtkDialog extends StatelessWidget {
   const GtkDialog({

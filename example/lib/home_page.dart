@@ -8,10 +8,11 @@ import 'package:example/pages/view_switcher_page.dart';
 import 'package:example/pages/welcome.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:libadwaita/libadwaita.dart';
-import 'package:libadwaita_bitsdojo/libadwaita_bitsdojo.dart';
-
+// import 'package:libadwaita/sr';
+import 'package:yaru_window/yaru_window.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -55,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final window = YaruWindow.of(context);
     final developers = {
       'Prateek Sunal': 'prateekmedia',
       'Malcolm Mielle': 'MalcolmMielle',
@@ -64,11 +66,19 @@ class _MyHomePageState extends State<MyHomePage> {
     };
 
     return AdwScaffold(
+      headerBarStyle: HeaderBarStyle(isTransparent: true),
       flapController: _flapController,
-      actions: AdwActions().bitsdojo,
+      actions: AdwActions().adwDefault,
       start: [
         AdwHeaderButton(
-          icon: const Icon(Icons.view_sidebar_outlined, size: 19),
+          icon: Center(
+            child: SvgPicture.asset(
+              'assets/dock-left-symbolic.svg',
+              width: 16,
+              height: 16,
+              color: context.textColor,
+            ),
+          ),
           isActive: _flapController.isOpen,
           onPressed: () => _flapController.toggle(),
         ),
@@ -122,8 +132,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     appIcon: Image.asset('assets/logo.png'),
                     actions: AdwActions(
                       onClose: Navigator.of(context).pop,
-                      onHeaderDrag: appWindow?.startDragging,
-                      onDoubleTap: appWindow?.maximizeOrRestore,
+                      onHeaderDrag: (context) {
+                        window.drag();
+                      },
+                      onDoubleTap: window.maximize,
                     ),
                     credits: [
                       AdwPreferencesGroup.credits(

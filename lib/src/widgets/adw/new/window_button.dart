@@ -13,7 +13,7 @@ class AdwWindowButton extends StatelessWidget {
   }) : super(key: key);
 
   /// Executed when this button is pressed
-  final VoidCallback? onPressed;
+  final void Function(BuildContext context)? onPressed;
 
   /// The WindowButtonType for this window
   final WindowButtonType buttonType;
@@ -24,7 +24,7 @@ class AdwWindowButton extends StatelessWidget {
         ? AdwButton.circular(
             size: 24,
             margin: const EdgeInsets.all(6),
-            onPressed: onPressed,
+            onPressed: () => onPressed?.call(context),
             child: Center(
               child: SvgPicture.asset(
                 'packages/libadwaita/assets/icons/${buttonType.name}.svg',

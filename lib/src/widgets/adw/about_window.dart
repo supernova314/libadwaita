@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:libadwaita/libadwaita.dart';
-import 'package:libadwaita_core/libadwaita_core.dart';
+import 'package:libadwaita/src/core/core.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 

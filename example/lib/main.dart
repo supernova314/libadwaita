@@ -6,8 +6,10 @@ import 'package:example/flap/flap_demo.dart';
 import 'package:example/home_page.dart';
 import 'package:example/view_switcher/view_switcher_demo.dart';
 import 'package:flutter/material.dart';
+import 'package:yaru_window/yaru_window.dart';
 
 Future<void> main(List<String> args) async {
+  await YaruWindow.ensureInitialized();
   if (args.firstOrNull == 'multi_window') {
     // final windowId = int.parse(args[1]);
     final argument = args[2].isEmpty
@@ -34,6 +36,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    YaruWindow.of(context).hideTitle();
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: themeNotifier,
       builder: (_, ThemeMode currentMode, __) {

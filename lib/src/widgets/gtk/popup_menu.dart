@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:libadwaita/src/widgets/gtk/icon.dart';
 import 'package:libadwaita/src/widgets/widgets.dart';
 import 'package:popover_gtk/popover_gtk.dart';
 
@@ -9,7 +11,11 @@ class GtkPopupMenu extends StatefulWidget {
   const GtkPopupMenu({
     Key? key,
     required this.body,
-    this.icon = const Icon(Icons.menu, size: 17),
+    this.icon = const Center(
+      child: GtkIcon(
+        name: 'packages/libadwaita/assets/icons/menu-symbolic.svg',
+      ),
+    ),
     this.popupWidth = 200,
     this.popupHeight,
   }) : super(key: key);

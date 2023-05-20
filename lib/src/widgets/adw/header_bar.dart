@@ -4,15 +4,15 @@ import 'package:dbus/dbus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gsettings/gsettings.dart';
+import 'package:libadwaita/src/core/core.dart';
 import 'package:libadwaita/src/utils/colors.dart';
 import 'package:libadwaita/src/widgets/widgets.dart';
-import 'package:libadwaita_core/libadwaita_core.dart';
 
 class HeaderBarStyle {
   const HeaderBarStyle({
     this.isTransparent = false,
     this.textStyle,
-    this.height = 51,
+    this.height = 46,
     this.autoPositionWindowButtons = true,
     this.padding = const EdgeInsets.only(left: 3, right: 5),
     this.titlebarSpace = 6,
@@ -89,7 +89,7 @@ class AdwHeaderBar extends StatefulWidget {
   final Widget? closeBtn;
 
   /// Called when headerbar is dragged
-  final VoidCallback? onHeaderDrag;
+  final void Function(BuildContext context)? onHeaderDrag;
 
   /// Called when headerbar is double tapped
   final VoidCallback? onDoubleTap;
@@ -171,7 +171,7 @@ class _AdwHeaderBarState extends State<AdwHeaderBar> {
       child: GestureDetector(
         onSecondaryTap: widget.onRightClick,
         behavior: HitTestBehavior.translucent,
-        onPanStart: (_) => widget.onHeaderDrag?.call(),
+        onPanStart: (_) => widget.onHeaderDrag?.call(context),
         child: Align(
           alignment: Alignment.topCenter,
           child: Container(

@@ -2,6 +2,7 @@ name: libadwaita
 description: Libadwaita's widgets for Flutter. Following Gnome HIG and available on all platforms.
 version: 1.2.5
 homepage: https://github.com/gtk-flutter/libadwaita
+publish_to: none
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -19,12 +20,12 @@ dependencies:
   dbus: ">=0.7.4 <1.0.0"
   flutter:
     sdk: flutter
-  flutter_svg: ">=1.0.3 < 2.0.0"
+  flutter_svg: ^2.0.5
   gsettings: ">=0.2.5 <1.0.0"
-  libadwaita_core: ">=0.5.4 < 2.0.0"
-  package_info_plus: ">=1.4.2 < 2.0.0"
+  package_info_plus: ^3.0.0
   popover_gtk: ">=0.2.6+3 < 1.0.0"
   url_launcher: ">=6.1.2 < 7.0.0"
+  yaru_window: ^0.1.1
 
 dev_dependencies:
   very_good_analysis: ^2.4.0

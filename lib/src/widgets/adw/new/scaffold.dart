@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:libadwaita/src/controllers/flap_controller.dart';
+import 'package:libadwaita/src/core/core.dart';
 import 'package:libadwaita/src/utils/colors.dart';
 import 'package:libadwaita/src/widgets/widgets.dart';
-import 'package:libadwaita_core/libadwaita_core.dart';
 
 class AdwScaffold extends StatefulWidget {
   const AdwScaffold({
